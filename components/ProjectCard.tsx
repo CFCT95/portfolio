@@ -119,8 +119,18 @@ export default function ProjectCard({ project }: { project: Project }) {
                         </svg>
                       ),
                       label: "Code push",
-                      sub: "Bitbucket CI/CD",
+                      sub: "Bitbucket",
                       color: "text-blue-500 bg-blue-50 dark:bg-blue-500/10",
+                    },
+                    {
+                      icon: (
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+                        </svg>
+                      ),
+                      label: "Lambda trigger",
+                      sub: "AWS Lambda",
+                      color: "text-yellow-500 bg-yellow-50 dark:bg-yellow-500/10",
                     },
                     {
                       icon: (
@@ -145,22 +155,22 @@ export default function ProjectCard({ project }: { project: Project }) {
                     {
                       icon: (
                         <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
-                        </svg>
-                      ),
-                      label: "Lambda trigger",
-                      sub: "AWS Lambda",
-                      color: "text-yellow-500 bg-yellow-50 dark:bg-yellow-500/10",
-                    },
-                    {
-                      icon: (
-                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 2.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125m16.5 2.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
                         </svg>
                       ),
                       label: "Reports → S3",
                       sub: "CloudWatch",
                       color: "text-violet-500 bg-violet-50 dark:bg-violet-500/10",
+                    },
+                    {
+                      icon: (
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                        </svg>
+                      ),
+                      label: "Notify team",
+                      sub: "Google Chat",
+                      color: "text-cyan-500 bg-cyan-50 dark:bg-cyan-500/10",
                     },
                   ].map((step, i, arr) => (
                     <div key={step.label} className="flex sm:flex-col items-center gap-2 sm:gap-1 flex-1 w-full sm:w-auto">

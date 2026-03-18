@@ -34,7 +34,7 @@ export const projects: Project[] = [
       "Triggers automatically on every code push via CI/CD",
       "HTML reports + screenshots stored in S3, logs in CloudWatch",
     ],
-    stack: ["Python", "Playwright", "pytest", "Docker", "AWS Fargate", "AWS Lambda", "AWS S3", "AWS CloudWatch", "CI/CD"],
+    stack: ["Python", "Playwright", "pytest", "Docker", "AWS Lambda", "AWS Fargate", "AWS S3", "AWS CloudWatch", "Google Chat", "CI/CD"],
     category: "Cloud QA",
     featured: true,
   },
