@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import type { Project } from "@/data/projects";
 
 function MetricBadge({ text }: { text: string }) {
@@ -105,40 +104,69 @@ export default function ProjectCard({ project }: { project: Project }) {
               </ul>
             </div>
 
-            {/* Images */}
-            {project.images && project.images.length > 0 && (
+            {/* Pipeline diagram */}
+            {project.id === "pallet-automation" && (
               <div>
-                <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">
-                  Screenshots
+                <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-4">
+                  How it works
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {project.images.map((img) => (
-                    <a
-                      key={img.src}
-                      href={img.src}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group/img block rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 hover:border-brand-400 dark:hover:border-brand-500 transition-colors"
-                    >
-                      <div className="relative w-full aspect-video bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
-                        <Image
-                          src={img.src}
-                          alt={img.alt}
-                          fill
-                          className="object-cover group-hover/img:scale-105 transition-transform duration-300"
-                          onError={(e) => {
-                            (e.currentTarget as HTMLImageElement).style.display = "none";
-                          }}
-                        />
-                        {/* shown only while image is missing */}
-                        <span className="absolute text-xs text-slate-400 pointer-events-none select-none">
-                          {img.alt}
-                        </span>
+                <div className="flex flex-col sm:flex-row items-center gap-2">
+                  {[
+                    {
+                      icon: (
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                        </svg>
+                      ),
+                      label: "Email received",
+                      sub: "Gmail IMAP",
+                      color: "text-blue-500 bg-blue-50 dark:bg-blue-500/10",
+                    },
+                    {
+                      icon: (
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h1.5C5.496 19.5 6 18.996 6 18.375m-3.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-1.5A1.125 1.125 0 0 1 18 18.375M5.625 4.5h12.75a1.125 1.125 0 0 1 1.125 1.125v9a1.125 1.125 0 0 1-1.125 1.125H5.625a1.125 1.125 0 0 1-1.125-1.125v-9A1.125 1.125 0 0 1 5.625 4.5Z" />
+                        </svg>
+                      ),
+                      label: "ERP data cleaned",
+                      sub: "pandas",
+                      color: "text-violet-500 bg-violet-50 dark:bg-violet-500/10",
+                    },
+                    {
+                      icon: (
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                        </svg>
+                      ),
+                      label: "BOL generated",
+                      sub: "openpyxl",
+                      color: "text-emerald-500 bg-emerald-50 dark:bg-emerald-500/10",
+                    },
+                    {
+                      icon: (
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                        </svg>
+                      ),
+                      label: "Email sent",
+                      sub: "SMTP",
+                      color: "text-cyan-500 bg-cyan-50 dark:bg-cyan-500/10",
+                    },
+                  ].map((step, i, arr) => (
+                    <div key={step.label} className="flex sm:flex-col items-center gap-2 sm:gap-1 flex-1 w-full sm:w-auto">
+                      <div className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center ${step.color}`}>
+                        {step.icon}
                       </div>
-                      <p className="px-3 py-2 text-xs text-slate-500 dark:text-slate-400 truncate">
-                        {img.alt}
-                      </p>
-                    </a>
+                      <div className="text-center sm:text-center">
+                        <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 leading-tight">{step.label}</p>
+                        <p className="text-xs text-slate-400 font-mono">{step.sub}</p>
+                      </div>
+                      {i < arr.length - 1 && (
+                        <svg className="w-4 h-4 text-slate-300 dark:text-slate-600 flex-shrink-0 rotate-90 sm:rotate-0 ml-auto sm:ml-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="m9 18 6-6-6-6" />
+                        </svg>
+                      )}
+                    </div>
                   ))}
                 </div>
               </div>

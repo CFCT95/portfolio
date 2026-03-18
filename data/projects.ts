@@ -36,11 +36,6 @@ export const projects: Project[] = [
     stack: ["Python", "pandas", "openpyxl", "IMAP/SMTP", "macOS LaunchAgent"],
     category: "Automation",
     githubUrl: "https://github.com/CFCT95/pallet-automation",
-    images: [
-      { src: "/images/bol-output.png",   alt: "Generated Bill of Lading document" },
-      { src: "/images/erp-report.png",   alt: "Raw ERP Excel report (input)" },
-      { src: "/images/email-trigger.png", alt: "Email trigger and delivery flow" },
-    ],
     featured: true,
   },
 ];
