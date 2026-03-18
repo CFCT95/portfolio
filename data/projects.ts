@@ -17,6 +17,28 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "edtech-qa",
+    title: "EdTech QA Automation",
+    tagline: "Cloud-native test automation pipeline for an educational platform on AWS",
+    description:
+      "End-to-end QA automation suite built for an EdTech company, containerized with Docker and deployed on AWS Fargate. Tests run automatically on every code push, with reports stored in S3 and logs centralized in CloudWatch.",
+    problem:
+      "Validating the platform across multiple user roles (teachers, administrators, coordinators) required manual QA sessions after every release — slow, inconsistent, and impossible to scale as the product grew.",
+    solution:
+      "Built a Playwright + pytest test suite following Page Object Model architecture. Containerized with Docker and deployed serverlessly on AWS Fargate via CI/CD. Every push triggers automatic execution across all user profiles, uploading HTML reports and screenshots to S3 with execution logs streamed to CloudWatch.",
+    result:
+      "Full platform validation — login, module navigation, PowerBI dashboards, evaluation grids — now runs in under 10 minutes automatically. Zero manual QA sessions required post-deploy. Evidence permanently stored and accessible to the whole team.",
+    metrics: [
+      "100% pass rate across login, navigation, content and screenshots",
+      "7–10 min automated validation vs hours of manual testing",
+      "Triggers automatically on every code push via CI/CD",
+      "HTML reports + screenshots stored in S3, logs in CloudWatch",
+    ],
+    stack: ["Python", "Playwright", "pytest", "Docker", "AWS Fargate", "AWS Lambda", "AWS S3", "AWS CloudWatch", "CI/CD"],
+    category: "Cloud QA",
+    featured: true,
+  },
+  {
     id: "pallet-automation",
     title: "Pallet QC Automation",
     tagline: "End-to-end BOL generation pipeline triggered by email",

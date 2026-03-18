@@ -104,6 +104,84 @@ export default function ProjectCard({ project }: { project: Project }) {
               </ul>
             </div>
 
+            {/* AWS architecture diagram */}
+            {project.id === "edtech-qa" && (
+              <div>
+                <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-4">
+                  How it works
+                </p>
+                <div className="flex flex-col sm:flex-row items-center gap-2">
+                  {[
+                    {
+                      icon: (
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+                        </svg>
+                      ),
+                      label: "Code push",
+                      sub: "Bitbucket CI/CD",
+                      color: "text-blue-500 bg-blue-50 dark:bg-blue-500/10",
+                    },
+                    {
+                      icon: (
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 17.25v.75a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25v-.75M17.25 12l-5.25 5.25L6.75 12M12 17.25V3" />
+                        </svg>
+                      ),
+                      label: "Docker → Fargate",
+                      sub: "AWS ECS",
+                      color: "text-orange-500 bg-orange-50 dark:bg-orange-500/10",
+                    },
+                    {
+                      icon: (
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                      ),
+                      label: "Tests run",
+                      sub: "Playwright",
+                      color: "text-emerald-500 bg-emerald-50 dark:bg-emerald-500/10",
+                    },
+                    {
+                      icon: (
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+                        </svg>
+                      ),
+                      label: "Lambda trigger",
+                      sub: "AWS Lambda",
+                      color: "text-yellow-500 bg-yellow-50 dark:bg-yellow-500/10",
+                    },
+                    {
+                      icon: (
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 2.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125m16.5 2.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+                        </svg>
+                      ),
+                      label: "Reports → S3",
+                      sub: "CloudWatch",
+                      color: "text-violet-500 bg-violet-50 dark:bg-violet-500/10",
+                    },
+                  ].map((step, i, arr) => (
+                    <div key={step.label} className="flex sm:flex-col items-center gap-2 sm:gap-1 flex-1 w-full sm:w-auto">
+                      <div className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center ${step.color}`}>
+                        {step.icon}
+                      </div>
+                      <div className="text-center">
+                        <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 leading-tight">{step.label}</p>
+                        <p className="text-xs text-slate-400 font-mono">{step.sub}</p>
+                      </div>
+                      {i < arr.length - 1 && (
+                        <svg className="w-4 h-4 text-slate-300 dark:text-slate-600 flex-shrink-0 rotate-90 sm:rotate-0 ml-auto sm:ml-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="m9 18 6-6-6-6" />
+                        </svg>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Pipeline diagram */}
             {project.id === "pallet-automation" && (
               <div>
