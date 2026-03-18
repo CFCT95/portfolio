@@ -40,12 +40,12 @@ export const projects: Project[] = [
   },
   {
     id: "pallet-automation",
-    title: "Pallet QC Automation",
-    tagline: "End-to-end BOL generation pipeline triggered by email",
+    title: "Aerospace Freight Automation",
+    tagline: "End-to-end BOL generation pipeline for aerospace shipments",
     description:
-      "A fully automated pipeline that monitors a Gmail inbox, processes ERP Excel reports, generates Bill of Lading documents, and delivers them via email — all without manual intervention.",
+      "A fully automated logistics pipeline for an aerospace company that monitors a Gmail inbox, processes ERP Excel reports, generates Bill of Lading documents, and delivers them via email — all without manual intervention.",
     problem:
-      "Each weekly pallet shipment required manually downloading an ERP report, cleaning data, calculating totals, filling out a BOL template, and emailing it — a repetitive 20-minute process prone to human error.",
+      "Each weekly aerospace pallet shipment required manually downloading an ERP report, cleaning data, calculating totals, filling out a BOL template, and emailing it — a repetitive 20-minute process prone to human error.",
     solution:
       "Built a Python daemon that polls Gmail via IMAP every 60 seconds. When a forwarded pallet email with an ERP Excel attachment is detected, it automatically cleans the data, fills the BOL template, and sends the completed documents for review.",
     result:
@@ -56,7 +56,7 @@ export const projects: Project[] = [
       "Runs 24/7 as a system service — no manual restart needed",
     ],
     stack: ["Python", "pandas", "openpyxl", "IMAP/SMTP", "macOS LaunchAgent"],
-    category: "Automation",
+    category: "Aerospace · Logistics",
     githubUrl: "https://github.com/CFCT95/pallet-automation",
     featured: true,
   },
