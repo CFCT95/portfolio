@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg:       #ffffff;
+    --bg-alt:   #f8fafc;
+    --text:     #0f172a;
+    --text-muted: #64748b;
+    --border:   #e2e8f0;
+  }
+  .dark {
+    --bg:       #0a0f1a;
+    --bg-alt:   #111827;
+    --text:     #f1f5f9;
+    --text-muted: #94a3b8;
+    --border:   #1e293b;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white dark:bg-[#0a0f1a] text-slate-900 dark:text-slate-100 font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-brand-500 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-24 py-20 md:py-28;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-500 to-cyan-400 bg-clip-text text-transparent;
+  }
+  .card {
+    @apply bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 rounded-2xl;
+  }
+  .tag {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+}
